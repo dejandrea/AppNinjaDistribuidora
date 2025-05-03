@@ -1,16 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
 import Clientes from './pages/Clientes';
 import Contas from './pages/Contas';
-import Home from './pages/Home';
 import './App.css';
 
 const App = () => {
   return (
-    <div className="App">
-      <Contas/>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/clientes" element={<Clientes />} />
+      <Route path="/contas" element={<Contas />} />
+    </Routes>
   );
-}
+};
 
 export default App;

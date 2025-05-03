@@ -1,0 +1,15 @@
+@import url("../global.css");
+
+.header {
+    /* background: var(--header-bg-color-gradient); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 5rem;
+  }
+  
+  .logo {
+    width: 50rem;
+  }
+  
