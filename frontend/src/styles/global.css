@@ -7,7 +7,7 @@
   --color3: #a9767a;
   --color4: #371f1f;
   --color5: #92394b;
-  --color6: #352640;
+  --color6: #4e3434;
   --color7: #bcbcbc;
   --color8: #9c7c5b;
   --color9: #951a07;
@@ -22,6 +22,10 @@
   );
   --btn-bg-color: var(--color8);
   --btn-bg-hover-color: var(--color2);
+  --btn-text-color:var(--color9);
+  --btn-sec-bg-color:var(--color9);
+  --btn-sec-bg-hover-color:var(--color11);
+  --btn-sec-text-color:var(--color1);
   --header-bg-color-gradient: linear-gradient(
     -45deg,
     #f1f2ce 0%,

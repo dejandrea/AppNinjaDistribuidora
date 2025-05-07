@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import BotaoG from '../components/BotaoG';
+import Botao from '../components/Botao';
 
 const Contas = () => {
     const [contas, setContas] = useState([]);
@@ -22,7 +22,7 @@ const Contas = () => {
 
     return (
         <div>
-            <BotaoG onClick={() => navigate('/')}>Home</BotaoG>
+            <Botao onClick={() => navigate('/')}>Home</Botao>
             <h1>Contas</h1>
             <ul>
                 {contas.map((conta) => (

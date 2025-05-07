@@ -2,13 +2,15 @@ const mongoose = require('mongoose');
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const clienteSchema = new mongoose.Schema({
-  codigoCliente: { type: Number, unique: true },  // Código do cliente autoincremento
-  nome: { type: String, required: true },          // Nome obrigatório
-  apelido: { type: String },
+  codigoCliente: { type: Number, unique: true }, 
+  nome: { type: String, required: true },
+  apelido: { type: String},
   telefone: { type: String },
   email: { type: String },
   endereco: { type: String },
-  ativo: { type: Boolean, default: true },         // Ativo (Sim/Não), padrão: sim
+  ativo: { type: Boolean, default: true },  
+  status: { type: String, enum: ['liberado', 'bloqueado'], default: 'liberado' },
+  limite:{type:Number, default:100},
   observacoes: { type: String }
 }, { timestamps: true });
 

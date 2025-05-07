@@ -1,0 +1,79 @@
+@import url("../global.css");
+
+.botao {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    background: var(--btn-bg-color);
+  }
+  
+  .botao:hover {
+    background-color:var(--btn-bg-hover-color);
+  }
+
+  .botao.primario {
+    background: var(--btn-bg-color);
+    color: var(--btn-text-color);
+    box-shadow: 10px 10px 28px 9px rgba(0,0,0,0.71);
+      -webkit-box-shadow: 10px 10px 28px 9px rgba(0,0,0,0.71);
+      -moz-box-shadow: 10px 10px 28px 9px rgba(0,0,0,0.71);
+  }
+  
+  .botao.primario:hover {
+    background-color:var(--btn-bg-hover-color);
+  }
+  
+  .botao.secundario {
+    background-color: var(--btn-sec-bg-color);
+    color: var(--btn-sec-text-color);
+  }
+  
+  .botao.secundario:hover {
+    background-color: var(--btn-sec-bg-hover-color);
+  }
+
+  .botao.terciario {
+    background: var(--btn-bg-color);
+    color: var(--btn-text-color);
+  }
+  
+  .botao.terciario:hover {
+    background-color:var(--btn-bg-hover-color);
+  }
+
+  .botao.bg{
+    width: 20rem;
+    height: 10rem;
+    font-size: 3rem;
+    padding: 0.5rem 1.2rem;
+    margin: 1.5rem;
+  }
+  
+  .botao.md {
+    width: 15rem;
+    height: 5rem;
+    font-size: 2rem;
+    padding: 0.5rem 1.2rem;
+    margin: 1rem;
+  }
+  
+  .botao.sm {
+    width: 10rem;
+    height: 3rem;
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
+    margin: 0.5rem;
+  }
+
+  .botao.xxsm {
+    width: 6rem;
+    height: 2rem;
+    font-size: 1rem;
+    padding: 0.4rem 0.5rem;
+    margin: 0 0.02rem;
+  }
+
+
+  

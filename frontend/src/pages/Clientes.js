@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import BotaoG from '../components/BotaoG';
-import BotaoM from '../components/BotaoM'
-import BotaoP from '../components/BotaoP'
+import Botao from '../components/Botao';
 import Header from "../components/Header"
+import ModalNovoCliente from '../components/ModalNovoCliente';
 import "../styles/pages/Clientes.css"
 
 const Clientes = () => {
     const [clientes, setClientes] = useState([]);
+    const [mostrarModal, setMostrarModal] = useState(false);
+
     let navigate = useNavigate();
     useEffect(() => {
         const fetchClientes = async () => {
@@ -29,24 +30,50 @@ const Clientes = () => {
             <h1>Clientes</h1>
             <div className="body-content">
                 <div className="menu-lateral">
-                    <BotaoG onClick={() => navigate('/')}>Home G</BotaoG>
-                    <BotaoM onClick={() => navigate('/')}>Home M</BotaoM>
-                    <BotaoP onClick={() => navigate('/')}>Home P</BotaoP>
+                    <Botao onClick={() => navigate('/')} tamanho='sm'>Tela Inicial</Botao>
+                    <Botao onClick={() => setMostrarModal(true)} tamanho='sm'>Novo Cliente</Botao>
+                    <Botao onClick={() => navigate('/')} tamanho='sm'>Buscar Cliente</Botao>
+                    <Botao onClick={() => navigate('/')} tamanho='sm'>Atualizar Cliente</Botao>
                 </div>
                 <div className='main-content'>
-                    <ul>
+                    <table>
+                        <tr className='table__title'>
+                            <th>Cód</th>
+                            <th>Nome</th>
+                            <th>Apelido</th>
+                            <th>Status</th>
+                            <th>Observações</th>
+                            <th>Editar</th>
+                        </tr>
                         {clientes.map((cliente) => (
-                            <li key={cliente.codigoCliente}>
-                                {cliente.nome} - {cliente.telefone}
-                            </li>
+                            <tr key={cliente.codigoCliente} className={cliente.status}>
+                                <td>{cliente.codigoCliente}</td>
+                                <td>{cliente.nome}</td>
+                                <td>{cliente.apelido}</td>
+                                <td>{cliente.status}</td>
+                                <td>{cliente.observacoes}</td>
+                                <td>Editar</td>
+                            </tr>
                         ))}
-                    </ul>
+                    </table>
                 </div>
             </div>
 
-
+            {mostrarModal && (
+                <ModalNovoCliente
+                  onClose={() => setMostrarModal(false)}
+                  onSuccess={() => {
+                    setMostrarModal(false);
+                    axios.get('http://localhost:5000/clientes')
+                      .then(res => setClientes(res.data));
+                  }}
+                />
+              )}
         </div>
-    );
+
+
+);
+
 };
 
 export default Clientes;

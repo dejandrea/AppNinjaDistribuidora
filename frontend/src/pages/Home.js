@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
-import BotaoG from '../components/BotaoG';
+import Botao from '../components/Botao';
 import '../styles/pages/Home.css';
 
 const Home = () => {
@@ -10,10 +10,10 @@ const Home = () => {
       <div className="body">
         <Header/>
         <div>
-            <BotaoG onClick={()=> navigate('/clientes')}>Clientes</BotaoG>
-            <BotaoG onClick={()=> navigate('/contas')}>À Receber</BotaoG>
+            <Botao onClick={()=> navigate('/clientes')}>Clientes</Botao>
+            <Botao onClick={()=> navigate('/contas')}>À Receber</Botao>
         </div>
-        <BotaoG>Contas Abertas</BotaoG>
+        <Botao>Contas Abertas</Botao>
       </div>
     );
 }
