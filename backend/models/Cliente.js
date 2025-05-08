@@ -11,6 +11,7 @@ const clienteSchema = new mongoose.Schema({
   ativo: { type: Boolean, default: true },  
   status: { type: String, enum: ['liberado', 'bloqueado'], default: 'liberado' },
   limite:{type:Number, default:100},
+  totalPendente: {type: Number, default: 0},
   observacoes: { type: String }
 }, { timestamps: true });
 

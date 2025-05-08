@@ -2,14 +2,30 @@ const mongoose = require('mongoose');
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const contaSchema = new mongoose.Schema({
-  codigoConta: { type: Number, unique: true },   // Código da conta autoincremento
-  codigoCliente: { type: Number, required: true },  // Referência para o Cliente
-  valor: { type: Number, required: true },         // Valor da conta
-  dataVencimento: { type: Date, default: () => new Date(Date.now() + 30*24*60*60*1000) },  // Data de vencimento, padrão: 30 dias à partir da data atual
-  status: { type: String, enum: ['pendente', 'pago'], default: 'pendente' },  // Status da conta (pendente ou pago), padrão: pendente
+  codigoConta: { type: Number, unique: true },
+  codigoCliente: {
+    type: Number,
+    required: true,
+    ref: 'Cliente' // Referência ao modelo Cliente para usar populate
+  },
+  valor: { type: Number, required: true },
+  dataVencimento: {
+    type: Date,
+    default: () => new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+  },
+  tipo: {
+    type: String,
+    enum: ['debito', 'credito'],
+    default: "debito",
+    required: true,
+  },
+  dataLancamento: {
+    type: Date,
+    default: Date.now(),
+  },
+  observacoes: String,
 }, { timestamps: true });
 
-// campo códigoConta autoincremental
 contaSchema.plugin(AutoIncrement, { inc_field: 'codigoConta' });
 
 module.exports = mongoose.model('Conta', contaSchema);
