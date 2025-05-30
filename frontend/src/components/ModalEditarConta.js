@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/components/Modal.css';
+import { formatarMoedaDigitada, formatarMoedaBanco, desformatarMoeda } from '../utils/formatacao.js';
 import Botao from './Botao';
 
 const ModalEditarConta = ({ conta, onClose, onSuccess }) => {
@@ -21,9 +22,9 @@ const ModalEditarConta = ({ conta, onClose, onSuccess }) => {
                 console.error('Erro ao buscar clientes', err);
             }
         };
-    
+
         buscarClientes();
-    
+
         if (conta) {
             // Atribuindo os valores de conta para o estado
             setClienteSelecionado({
@@ -31,13 +32,13 @@ const ModalEditarConta = ({ conta, onClose, onSuccess }) => {
                 codigoCliente: conta.codigoCliente
             });
             setFiltro(conta.clienteNome);  // Preenchendo o filtro com o nome do cliente
-            setValor(formatarMoeda(conta.valor.toString()));
+            setValor(formatarMoedaBanco(conta.valor));
             setVencimento(conta.dataVencimento?.slice(0, 10));
             setTipo(conta.tipo);
             setObservacoes(conta.Observacao || '');
         }
     }, [conta]);
-    
+
 
     const clientesFiltrados = clientes.filter((c) =>
         c.ativo &&
@@ -47,21 +48,14 @@ const ModalEditarConta = ({ conta, onClose, onSuccess }) => {
             c.codigoCliente.toString().includes(filtro || '')
         )
     );
-    
 
-    const formatarMoeda = (valorNumerico) => {
-        const numero = parseFloat(valorNumerico.replace(/\D/g, '')) / 100;
-        return numero.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-        });
-    };
 
     const handleValorChange = (e) => {
         const valorDigitado = e.target.value;
-        const valorFormatado = formatarMoeda(valorDigitado);
+        const valorFormatado = formatarMoedaDigitada(valorDigitado);
         setValor(valorFormatado);
     };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -69,7 +63,9 @@ const ModalEditarConta = ({ conta, onClose, onSuccess }) => {
         if (!clienteSelecionado) return alert("Selecione um cliente");
         if (!tipo) return alert("Selecione o tipo da conta");
 
-        const valorNumerico = parseFloat(valor.replace(/\D/g, '')) / 100;
+        // const valorNumerico = parseFloat(valor.replace(/\D/g, '')) / 100;
+        const valorNumerico = desformatarMoeda(valor);
+
 
         const contaAtualizada = {
             codigoCliente: clienteSelecionado.codigoCliente,

@@ -5,17 +5,20 @@ import Botao from '../components/Botao';
 import '../styles/pages/Home.css';
 
 const Home = () => {
-    let navigate = useNavigate();
-    return (
-      <div className="body">
-        <Header/>
-        <div>
-            <Botao onClick={()=> navigate('/clientes')}>Clientes</Botao>
-            <Botao onClick={()=> navigate('/contas')}>À Receber</Botao>
-        </div>
-        <Botao>Contas Abertas</Botao>
+  let navigate = useNavigate();
+  return (
+    <div className="body">
+      <Header />
+      <div>
+        <Botao onClick={() => navigate('/clientes')}>Clientes</Botao>
+        <Botao onClick={() => navigate('/contas')}>À Receber</Botao>
       </div>
-    );
+      <div>
+        <Botao onClick={() => navigate('/resumo')}>Relatórios</Botao>
+        <Botao>Mesas</Botao>
+      </div>
+    </div>
+  );
 }
-  
+
 export default Home;

@@ -57,7 +57,8 @@ const Contas = () => {
             <h1>Contas</h1>
             <div className='body__top'>
                 <div className="menu">
-                    <Botao onClick={() => navigate('/')} tamanho='sm'>Tela Inicial</Botao>
+                    <Botao onClick={() => navigate('/')} tamanho='xsm'>Tela Inicial</Botao>
+                    <Botao onClick={() => navigate('/clientes')} tamanho='xsm'>Clientes</Botao>
                     <Botao onClick={() => setMostrarModalConta(true)} tamanho='sm'>Nova Conta</Botao>
                 </div>
 

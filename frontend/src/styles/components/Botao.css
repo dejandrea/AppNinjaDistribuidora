@@ -67,6 +67,14 @@
     margin: 0.5rem;
   }
 
+  .botao.xsm {
+    width: 7.5rem;
+    height: 3rem;
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
+    margin: 0.5rem;
+  }
+
   .botao.xxsm {
     width: 6rem;
     height: 2rem;

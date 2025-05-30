@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/components/Modal.css';
+import { formatarMoedaDigitada, formatarMoedaBanco, desformatarMoeda } from '../utils/formatacao.js';
 import Botao from './Botao';
 
 const ModalNovaConta = ({ onClose, onSuccess }) => {
@@ -34,19 +35,12 @@ const ModalNovaConta = ({ onClose, onSuccess }) => {
         )
     );
 
-    const formatarMoeda = (valorNumerico) => {
-        const numero = parseFloat(valorNumerico.replace(/\D/g, '')) / 100;
-        return numero.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-        });
-    };
+const handleValorChange = (e) => {
+    const valorDigitado = e.target.value;
+    const valorFormatado = formatarMoedaDigitada(valorDigitado);
+    setValor(valorFormatado);
+};
 
-    const handleValorChange = (e) => {
-        const valorDigitado = e.target.value;
-        const valorFormatado = formatarMoeda(valorDigitado);
-        setValor(valorFormatado);
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
