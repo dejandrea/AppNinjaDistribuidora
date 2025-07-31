@@ -15,7 +15,7 @@ const Home = () => {
       </div>
       <div>
         <Botao onClick={() => navigate('/resumo')}>Relatórios</Botao>
-        <Botao>Mesas</Botao>
+        {/* <Botao onClick={() => navigate('/mesas')}>Mesas</Botao> */}
       </div>
     </div>
   );

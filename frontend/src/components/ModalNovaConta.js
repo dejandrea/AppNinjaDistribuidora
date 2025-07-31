@@ -35,11 +35,11 @@ const ModalNovaConta = ({ onClose, onSuccess }) => {
         )
     );
 
-const handleValorChange = (e) => {
-    const valorDigitado = e.target.value;
-    const valorFormatado = formatarMoedaDigitada(valorDigitado);
-    setValor(valorFormatado);
-};
+    const handleValorChange = (e) => {
+        const valorDigitado = e.target.value;
+        const valorFormatado = formatarMoedaDigitada(valorDigitado);
+        setValor(valorFormatado);
+    };
 
 
     const handleSubmit = async (e) => {

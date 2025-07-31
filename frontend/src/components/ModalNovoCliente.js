@@ -42,7 +42,7 @@ const ModalNovoCliente = ({ onClose, onSuccess }) => {
       <div className="modal">
         <h2>Novo Cliente</h2>
         <form onSubmit={handleSubmit}>
-          <input name="nome" placeholder="Nome" value={form.nome} onChange={handleChange} required />
+          <input name="nome" placeholder="Nome" value={form.nome} onChange={handleChange} required autoFocus />
           <input name="apelido" placeholder="Apelido" value={form.apelido} onChange={handleChange} />
           <input name="telefone" placeholder="Telefone" value={form.telefone} onChange={handleChange} />
           <input name="email" placeholder="Email" value={form.email} onChange={handleChange} />

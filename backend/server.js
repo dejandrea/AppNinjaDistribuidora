@@ -7,7 +7,10 @@ const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
 app.use(express.json());
 
 const clienteRoutes = require('./routes/clienteRoutes');
@@ -15,6 +18,9 @@ app.use('/clientes', clienteRoutes);
 
 const contaRoutes = require('./routes/contaRoutes');
 app.use('/contas', contaRoutes);
+
+const mesaRoutes = require('./routes/mesaRoutes');
+app.use('/mesas', mesaRoutes);
 
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB conectado!'))
