@@ -29,7 +29,7 @@ const ModalNovoCliente = ({ onClose, onSuccess }) => {
     };
   
     try {
-      await axios.post('http://localhost:5000/clientes', cliente);
+      await axios.post(`${process.env.REACT_APP_API_URL}/clientes`, cliente);
       onSuccess();
       onClose();
     } catch (error) {
