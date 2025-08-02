@@ -17,7 +17,7 @@ const Clientes = () => {
     let navigate = useNavigate();
     const fetchClientes = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/clientes');
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/clientes`);
             setClientes(response.data);
             setClientesFiltrados(response.data);
         } catch (error) {
