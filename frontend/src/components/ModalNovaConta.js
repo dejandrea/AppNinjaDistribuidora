@@ -82,6 +82,7 @@ const ModalNovaConta = ({ onClose, onSuccess }) => {
                         value={clienteSelecionado ? clienteSelecionado.nome : filtro}
                         onChange={(e) => setFiltro(e.target.value)}
                         placeholder="Digite o nome do cliente"
+                        autofocus
                     />
                     {filtro && !clienteSelecionado && clientesFiltrados.length > 0 && (
                         <ul className="sugestoes">
