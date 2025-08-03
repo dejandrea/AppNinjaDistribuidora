@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import api from '../services/api';
 import Botao from './Botao';
 import '../styles/components/Modal.css'
 
@@ -8,7 +9,7 @@ const ModalNovaMesa = ({ onClose }) => {
 
     const criarMesa = async () => {
         try {
-            await axios.post('http://localhost:5000/mesas', { nomeMesa });
+            await api.post('/mesas', { nomeMesa });
             onClose();
         } catch (err) {
             console.error('Erro ao criar mesa', err);

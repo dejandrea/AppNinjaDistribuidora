@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import axios from 'axios';
+import api from '../services/api';
 import Botao from '../components/Botao';
 import Header from "../components/Header"
 import ModalNovaConta from '../components/ModalNovaConta';
@@ -40,7 +41,7 @@ const Contas = () => {
 
     const fetchContas = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/contas');
+            const response = await api.get('/contas');
             setContas(response.data);
         } catch (error) {
             console.error('Erro ao buscar contas', error);

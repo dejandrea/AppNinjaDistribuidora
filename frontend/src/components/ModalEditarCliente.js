@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import api from '../services/api';
 import Botao from './Botao';
 import '../styles/components/Modal.css';
 
@@ -24,7 +25,7 @@ const ModalEditarCliente = ({ cliente, onClose, onSuccess }) => {
         };
 
         try {
-            await axios.put(`http://localhost:5000/clientes/${form.codigoCliente}`, clienteAtualizado);
+            await api.put(`/clientes/${form.codigoCliente}`, clienteAtualizado);
             onSuccess();
             onClose();
         } catch (error) {

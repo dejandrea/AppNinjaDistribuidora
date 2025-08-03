@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import axios from 'axios';
+import api from '../services/api';
 import Botao from '../components/Botao';
 import Header from "../components/Header"
 import '../styles/pages/ResumoContas.css';
@@ -21,10 +22,10 @@ const ResumoContas = () => {
 
     const carregarDados = async () => {
         try {
-            const resClientes = await axios.get('http://localhost:5000/clientes');
+            const resClientes = await api.get('/clientes');
             setClientes(resClientes.data);
 
-            const resContas = await axios.get('http://localhost:5000/contas');
+            const resContas = await api.get('/contas');
             const contasOrdenadas = resContas.data.sort((a, b) => new Date(a.dataLancamento) - new Date(b.dataLancamento));
 
             setContas(clienteSelecionado

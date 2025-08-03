@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import api from '../services/api';
 import Botao from './Botao';
 import '../styles/components/Modal.css';
 
@@ -29,7 +30,7 @@ const ModalNovoCliente = ({ onClose, onSuccess }) => {
     };
   
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/clientes`, cliente);
+      await api.post('/clientes', cliente);
       onSuccess();
       onClose();
     } catch (error) {

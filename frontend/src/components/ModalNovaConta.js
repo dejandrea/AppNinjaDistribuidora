@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import api from '../services/api.js';
 import '../styles/components/Modal.css';
 import { formatarMoedaDigitada, formatarMoedaBanco, desformatarMoeda } from '../utils/formatacao.js';
 import Botao from './Botao';
@@ -16,7 +17,7 @@ const ModalNovaConta = ({ onClose, onSuccess }) => {
     useEffect(() => {
         const buscarClientes = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/clientes');
+                const res = await api.get('/clientes');
                 setClientes(res.data);
             } catch (err) {
                 console.error('Erro ao buscar clientes', err);
@@ -62,7 +63,7 @@ const ModalNovaConta = ({ onClose, onSuccess }) => {
         };
 
         try {
-            await axios.post('http://localhost:5000/contas', novaConta);
+            await api.post('/contas', novaConta);
             onSuccess();
         } catch (err) {
             console.error('Erro ao criar conta', err);

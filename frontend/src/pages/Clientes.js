@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import api from '../services/api';
 import Botao from '../components/Botao';
 import Header from "../components/Header"
 import ModalNovoCliente from '../components/ModalNovoCliente';
@@ -17,7 +18,7 @@ const Clientes = () => {
     let navigate = useNavigate();
     const fetchClientes = async () => {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/clientes`);
+            const response = await api.get('/clientes');
             setClientes(response.data);
             setClientesFiltrados(response.data);
         } catch (error) {
@@ -100,7 +101,7 @@ const Clientes = () => {
                     onClose={() => setMostrarModal(false)}
                     onSuccess={() => {
                         setMostrarModal(false);
-                        axios.get('http://localhost:5000/clientes')
+                        api.get('/clientes')
                             .then(res => setClientes(res.data));
                     }}
                 />

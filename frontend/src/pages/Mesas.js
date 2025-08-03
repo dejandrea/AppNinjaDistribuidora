@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import api from '../services/api';
 import MesaCard from '../components/MesaCard';
 import ModalNovaMesa from '../components/ModalNovaMesa';
 import ModalDetalhesMesa from '../components/ModalDetalhesMesa';
@@ -18,7 +19,7 @@ const Mesas = () => {
 
     const buscarMesas = async () => {
         try {
-            const { data } = await axios.get('/api/mesas');
+            const { data } = await api.get('/mesas');
             setMesas(data);
         } catch (err) {
             console.error('Erro ao buscar mesas', err);
