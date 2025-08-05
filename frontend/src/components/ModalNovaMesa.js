@@ -25,6 +25,7 @@ const ModalNovaMesa = ({ onClose }) => {
                     placeholder="Nome do cliente (opcional)"
                     value={nomeMesa}
                     onChange={e => setNomeMesa(e.target.value)}
+                    autoFocus
                 />
                 <div className="modal-buttons">
                     <Botao tamanho='xxsm' cor='terciario'onClick={onClose}>Cancelar</Botao>

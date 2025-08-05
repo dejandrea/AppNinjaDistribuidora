@@ -60,6 +60,7 @@ const Contas = () => {
                 <div className="menu">
                     <Botao onClick={() => navigate('/')} tamanho='xsm'>Tela Inicial</Botao>
                     <Botao onClick={() => navigate('/clientes')} tamanho='xsm'>Clientes</Botao>
+                    <Botao onClick={() => navigate('/resumo')} tamanho='xsm'>Relatórios</Botao>
                     <Botao onClick={() => setMostrarModalConta(true)} tamanho='sm'>Nova Conta</Botao>
                 </div>
 
