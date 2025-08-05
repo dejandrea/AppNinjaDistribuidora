@@ -48,6 +48,7 @@ const Clientes = () => {
                 <div className="menu">
                     <Botao onClick={() => navigate('/')} tamanho='xsm'>Tela Inicial</Botao>
                     <Botao onClick={() => navigate('/contas')} tamanho='xsm'>Contas</Botao>
+                    <Botao onClick={() => navigate('/resumo')} tamanho='xsm'>Relatórios</Botao>
                     <Botao onClick={() => setMostrarModal(true)} tamanho='sm'>Novo Cliente</Botao>
                 </div>
                 

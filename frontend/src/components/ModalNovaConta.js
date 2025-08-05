@@ -11,7 +11,7 @@ const ModalNovaConta = ({ onClose, onSuccess }) => {
     const [clienteSelecionado, setClienteSelecionado] = useState(null);
     const [valor, setValor] = useState('');
     const [vencimento, setVencimento] = useState('');
-    const [tipo, setTipo] = useState('');
+    const [tipo, setTipo] = useState('debito');
     const [observacoes, setObservacoes] = useState('');
 
     useEffect(() => {
@@ -82,6 +82,7 @@ const ModalNovaConta = ({ onClose, onSuccess }) => {
                         value={clienteSelecionado ? clienteSelecionado.nome : filtro}
                         onChange={(e) => setFiltro(e.target.value)}
                         placeholder="Digite o nome do cliente"
+                        autoFocus
                     />
                     {filtro && !clienteSelecionado && clientesFiltrados.length > 0 && (
                         <ul className="sugestoes">
