@@ -2,6 +2,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Kaushan+Script&display=swap');
 
+/* 
+--main-color1:#092341;
+--main-color2:#334559;
+--main-color3:#7C9EC0;
+--main-color4:#D4DCE6;
+--grey-color1:#8C8E91;
+--grey-color2:#918C8C;
+--grey-color3:#B8B1B1;
+--red-color:#FB0B0B;
+--green-color:#078B33;
+
+--text-color1:#fff;
+--text-color2:#092341;
+--text-color3:#000;
+
+--main-border-radius:8px;
+--secondary-border-radius: 8px 8px 0px 0px;
+*/
+
 :root {
   --color1: #f1f2ce;
   --color2: #d1b4a2;

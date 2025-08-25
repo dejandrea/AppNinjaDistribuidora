@@ -17,6 +17,9 @@ app.use(express.json());
 const clienteRoutes = require('./routes/clienteRoutes');
 app.use('/clientes', clienteRoutes);
 
+const usuarioRoutes = require('./routes/usuarioRoutes');
+app.use('/usuarios', usuarioRoutes);
+
 const contaRoutes = require('./routes/contaRoutes');
 app.use('/contas', contaRoutes);
 
