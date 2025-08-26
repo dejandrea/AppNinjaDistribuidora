@@ -6,41 +6,34 @@
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s ease;
-    background: var(--btn-bg-color);
+    background: var(--btn-main-bg-color);
   }
   
   .botao:hover {
-    background-color:var(--btn-bg-hover-color);
+    background-color:var(--btn-main-hover-color);
   }
 
   .botao.primario {
-    background: var(--btn-bg-color);
-    color: var(--btn-text-color);
-    box-shadow: 10px 10px 28px 9px rgba(0,0,0,0.71);
+    background: var(--btn-main-bg-color);
+    color: var(--text-color3);
+    /* box-shadow: 10px 10px 28px 9px rgba(0,0,0,0.71);
       -webkit-box-shadow: 10px 10px 28px 9px rgba(0,0,0,0.71);
-      -moz-box-shadow: 10px 10px 28px 9px rgba(0,0,0,0.71);
+      -moz-box-shadow: 10px 10px 28px 9px rgba(0,0,0,0.71); */
   }
   
   .botao.primario:hover {
-    background-color:var(--btn-bg-hover-color);
+    background-color:var(--btn-main-hover-color);
   }
   
-  .botao.secundario {
-    background-color: var(--btn-sec-bg-color);
-    color: var(--btn-sec-text-color);
-  }
-  
-  .botao.secundario:hover {
-    background-color: var(--btn-sec-bg-hover-color);
-  }
+ 
 
   .botao.terciario {
-    background: var(--btn-bg-color);
-    color: var(--btn-text-color);
+    background: var(--btn-main-bg-color);
+    color: var(--text-color3);
   }
   
   .botao.terciario:hover {
-    background-color:var(--btn-bg-hover-color);
+    background-color:var(--btn-main-hover-color);
   }
 
   .botao.bg{
@@ -60,11 +53,11 @@
   }
   
   .botao.sm {
-    width: 10rem;
+    width: 12rem;
     height: 3rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
     padding: 0.4rem 1rem;
-    margin: 0.5rem;
+    margin: 0.5rem auto;
   }
 
   .botao.xsm {
@@ -72,7 +65,7 @@
     height: 3rem;
     font-size: 1rem;
     padding: 0.4rem 1rem;
-    margin: 0.5rem;
+    margin: 0.5rem auto;
   }
 
   .botao.xxsm {
@@ -81,6 +74,16 @@
     font-size: 1rem;
     padding: 0.4rem 0.5rem;
     margin: 0 0.02rem;
+  }
+
+  .botao.secundario {
+    background-color: var(--btn-red-bg-color);
+    color: var(--text-color1);
+    margin-top: 2.5rem;
+  }
+  
+  .botao.secundario:hover {
+    background-color: var(--btn-sec-bg-hover-color);
   }
 
 

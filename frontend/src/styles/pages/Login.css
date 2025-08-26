@@ -4,7 +4,7 @@ body{
     background-color: var(--main-color7);
 }
 
-.container{
+.containerLogin{
     display: flex;
     flex-direction: column;
     justify-content: center;

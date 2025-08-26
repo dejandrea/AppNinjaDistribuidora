@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../services/api';
 import { loginUsuario } from '../services/api';
 import logo from '../assets/logo-empresa.jpg'
 import logoSistema from "../assets/images/logoSitema/Logo-peq-cnz.png"
@@ -25,7 +24,7 @@ const Login = () => {
     };
 
     return (
-        <div className='container'>
+        <div className='containerLogin'>
             <div className="login-container">
                 <img className='logoEmpresa' src={logo} alt="logo loja" />
                 <h2>Seja Bem Vindo!</h2>

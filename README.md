@@ -136,7 +136,7 @@ npm run dev
 
 ### ✅ Próximas Versões (roadmap)
 
-* 🔒 Tela de login e autenticação (v3)
+* 🔒 Tela de login e autenticação (v2)
 * 📊 PDV
 * 👥 Permissões de usuário
 * 📱 Responsividade mobile

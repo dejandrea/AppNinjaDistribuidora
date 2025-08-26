@@ -2,29 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Kaushan+Script&display=swap');
 
-/* 
---main-color1:#092341;
---main-color2:#334559;
---main-color3:#6190C0;
---main-color4:#7C9EC0;
---main-color5:#D4DCE6;
---main-color6:#D1D4D6;
---grey-color1:#8C8E91;
---grey-color2:#918C8C;
---grey-color3:#B8B1B1;
---white-color1:#fff;
---white-color2:#d9d9d9;
---red-color:#FB0B0B;
---green-color:#078B33;
-
---text-color1:#fff;
---text-color2:#092341;
---text-color3:#000;
-
---main-border-radius:8px;
---secondary-border-radius: 8px 8px 0px 0px;
-*/
-
 :root {
     /* v2 colors */
     --main-color1:#092341;
@@ -49,6 +26,9 @@
     --main-border-radius:8px;
     --secondary-border-radius: 8px 8px 0px 0px;
 
+    --btn-main-bg-color:#7C9EC0;
+    --btn-red-bg-color:#FB0B0B;
+    --btn-main-hover-color:#6190C0;
     /* font-size */
     --font-size1:16px;
     --font-size2:20px;
@@ -84,14 +64,14 @@
   --btn-sec-bg-color:var(--color9);
   --btn-sec-bg-hover-color:var(--color11);
   --btn-sec-text-color:var(--color1);
-  --header-bg-color-gradient: linear-gradient(
+  /* --header-bg-color-gradient: linear-gradient(
     -45deg,
     #f1f2ce 0%,
     #d1b4a2 20%,
     #9c7c5b 40%,
     #805c38 60%,
     #371f1f 80%
-  );
+  ); */
   --text-color: #fff;
 
   --primary-font: "Raleway", sans-serif;
@@ -107,6 +87,15 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../assets/images/logoSitema/Logo-Grande-Cinza.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center right 150px;
 }
 
 

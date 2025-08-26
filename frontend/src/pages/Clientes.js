@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import api from '../services/api';
 import Botao from '../components/Botao';
-import Header from "../components/Header"
+import Header from "../components/Nav"
 import ModalNovoCliente from '../components/ModalNovoCliente';
 import ModalEditarCliente from '../components/ModalEditarCliente';
 import "../styles/pages/Clientes.css"

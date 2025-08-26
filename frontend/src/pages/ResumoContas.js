@@ -5,7 +5,7 @@ import { ptBR } from 'date-fns/locale';
 import axios from 'axios';
 import api from '../services/api';
 import Botao from '../components/Botao';
-import Header from "../components/Header"
+import Header from "../components/Nav"
 import '../styles/pages/ResumoContas.css';
 
 const ResumoContas = () => {

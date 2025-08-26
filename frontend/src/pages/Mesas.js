@@ -5,7 +5,7 @@ import api from '../services/api';
 import MesaCard from '../components/MesaCard';
 import ModalNovaMesa from '../components/ModalNovaMesa';
 import ModalDetalhesMesa from '../components/ModalDetalhesMesa';
-import Header from '../components/Header';
+import Header from '../components/Nav';
 import Botao from '../components/Botao';
 import '../styles/pages/Mesas.css';
 
