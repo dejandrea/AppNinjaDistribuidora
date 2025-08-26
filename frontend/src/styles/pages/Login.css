@@ -1,0 +1,84 @@
+@import url("../global.css");
+
+body{
+    background-color: var(--main-color7);
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    max-width: 500px;
+    margin: 60px auto 20px;
+    padding: 30px;
+    border: 2px solid var(--grey-color1);
+    border-radius: var(--main-border-radius);
+    background: var(--main-color4);
+}
+
+.login-container .logoEmpresa{
+    width: 70%;
+    align-self: center;
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--main-color1);
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container label {
+  margin-top: 10px;
+  margin-left: 24px;
+  color: var(--grey-color1);
+  font-weight: 800;
+}
+
+.login-container input {
+    align-self: center;
+    padding: 8px;
+    margin-top: 4px;
+    height: 50px;
+    width: 90%;
+    border-radius: var(--main-border-radius);
+    color: var(--text-color2);
+    font-size: var(--font-size2);
+}
+
+.login-container button {
+    align-self: center;
+    margin-top: 4rem;
+    padding: 4px;
+    background: var(--main-color5);
+    color: var(--text-color2);
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: var(--font-size3);
+    border-radius: var(--main-border-radius);
+    width: 12rem;
+    height: 50px;
+
+}
+
+.login-container .error {
+  color: red;
+  margin-top: 10px;
+}
+
+#logoSistema{
+    width: 16rem;
+}

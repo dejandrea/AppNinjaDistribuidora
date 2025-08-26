@@ -65,6 +65,23 @@ exports.updateUsuario = async (req, res) => {
   }
 };
 
+// Login
+exports.login = async (req, res) => {
+  try {
+    const { email, senha } = req.body;
+
+    const usuario = await Usuario.findOne({ email });
+    if (!usuario) return res.status(404).json({ error: 'Usuário não encontrado' });
+
+    const senhaCorreta = await bcrypt.compare(senha, usuario.senha);
+    if (!senhaCorreta) return res.status(401).json({ error: 'Senha inválida' });
+
+    res.json({ message: 'Login realizado com sucesso', usuario });
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao realizar login', detalhes: error.message });
+  }
+};
+
 exports.deleteUsuario = async (req, res) => {
   try {
     const usuario = await Usuario.findOneAndDelete({ codigoUsuario: req.params.codigoUsuario });

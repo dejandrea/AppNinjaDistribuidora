@@ -5,11 +5,15 @@
 /* 
 --main-color1:#092341;
 --main-color2:#334559;
---main-color3:#7C9EC0;
---main-color4:#D4DCE6;
+--main-color3:#6190C0;
+--main-color4:#7C9EC0;
+--main-color5:#D4DCE6;
+--main-color6:#D1D4D6;
 --grey-color1:#8C8E91;
 --grey-color2:#918C8C;
 --grey-color3:#B8B1B1;
+--white-color1:#fff;
+--white-color2:#d9d9d9;
 --red-color:#FB0B0B;
 --green-color:#078B33;
 
@@ -22,6 +26,39 @@
 */
 
 :root {
+    /* v2 colors */
+    --main-color1:#092341;
+    --main-color2:#334559;
+    --main-color3:#6190C0;
+    --main-color4:#6190c03a;
+    --main-color5:#7C9EC0;
+    --main-color6:#D4DCE6;
+    --main-color7:#D1D4D6;
+    --grey-color1:#8C8E91;
+    --grey-color2:#918C8C;
+    --grey-color3:#B8B1B1;
+    --white-color1:#fff;
+    --white-color2:#d9d9d9;
+    --red-color:#FB0B0B;
+    --green-color:#078B33;
+
+    --text-color1:#fff;
+    --text-color2:#092341;
+    --text-color3:#000;
+
+    --main-border-radius:8px;
+    --secondary-border-radius: 8px 8px 0px 0px;
+
+    /* font-size */
+    --font-size1:16px;
+    --font-size2:20px;
+    --font-size3:24px;
+    --font-size4:32px;
+    --font-size5:36px;
+    --font-size6:40px;
+    --font-size7:48px;
+
+/* old colors */
   --color1: #f1f2ce;
   --color2: #d1b4a2;
   --color3: #a9767a;
@@ -33,6 +70,7 @@
   --color9: #951a07;
   --color10: #fc2424;
   --color11: #ea1008;
+  
   --btn-bg-color-gradient: linear-gradient(
     45deg,
     #fc2424 0%,
