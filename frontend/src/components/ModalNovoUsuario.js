@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import api from '../services/api';
 import Botao from './Botao';
 import '../styles/components/Modal.css';
 
-const ModalNovoCliente = ({ onClose, onSuccess }) => {
+const ModalNovoUsuario = ({ onClose, onSuccess }) => {
   const [form, setForm] = useState({
     nome: '',
-    apelido: '',
     telefone: '',
-    email: '',
     endereco: '',
+    email: '',
+    senha: '',
     status: "liberado",
-    limite:100,
     observacoes: ''
   });
 
@@ -23,33 +21,24 @@ const ModalNovoCliente = ({ onClose, onSuccess }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    const cliente = {
-      ...form,
-      apelido: form.apelido.trim() === '' ? form.nome : form.apelido,
-    };
-  
+
     try {
-      await api.post('/clientes', cliente);
+      await api.post('/usuarios', form);
       onSuccess();
       onClose();
     } catch (error) {
-      console.error('Erro ao cadastrar cliente:', error);
+      console.error('Erro ao cadastrar usuário:', error);
     }
   };
 
   return (
     <div className="modal-overlay">
       <div className="modal">
-        <h2>Novo Cliente</h2>
+        <h2>Novo Usuário</h2>
         <form onSubmit={handleSubmit}>
           <fieldset>
             <legend>Nome:</legend>
             <input name="nome" value={form.nome} onChange={handleChange} required autoFocus />
-          </fieldset>
-          <fieldset>
-            <legend>Apelido:</legend>
-            <input name="apelido" value={form.apelido} onChange={handleChange} />
           </fieldset>
           <fieldset>
             <legend>Telefone:</legend>
@@ -58,6 +47,10 @@ const ModalNovoCliente = ({ onClose, onSuccess }) => {
           <fieldset>
             <legend>Email:</legend>
             <input name="email" placeholder="seuemail@email.com" value={form.email} onChange={handleChange} />
+          </fieldset>
+          <fieldset>
+            <legend>Senha:</legend>
+            <input name="senha" type='password' value={form.senha} onChange={handleChange} />
           </fieldset>
           <fieldset>
             <legend>Endereço:</legend>
@@ -69,10 +62,6 @@ const ModalNovoCliente = ({ onClose, onSuccess }) => {
               <option value="bloqueado">Bloqueado</option>
               <option value="liberado">Liberado</option>
             </select>
-          </fieldset>
-          <fieldset>
-            <legend>Limite:</legend>
-            <input name="limite" value={form.limite} onChange={handleChange} />
           </fieldset>
           <fieldset>
             <legend>Observações:</legend>
@@ -88,4 +77,4 @@ const ModalNovoCliente = ({ onClose, onSuccess }) => {
   );
 };
 
-export default ModalNovoCliente;
+export default ModalNovoUsuario;

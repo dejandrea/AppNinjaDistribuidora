@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import api from "../services/api";
 import Botao from "./Botao";
 import "../styles/components/Modal.css";
 
-const ModalEditarCliente = ({ cliente, onClose, onSuccess }) => {
-  const [form, setForm] = useState(cliente);
+const ModalEditarUsuario = ({ usuario, onClose, onSuccess }) => {
+  const [form, setForm] = useState(usuario);
 
   useEffect(() => {
-    setForm(cliente); // Atualiza se cliente mudar
-  }, [cliente]);
+    setForm(usuario); // Atualiza se usuario mudar
+  }, [usuario]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,13 +18,8 @@ const ModalEditarCliente = ({ cliente, onClose, onSuccess }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const clienteAtualizado = {
-      ...form,
-      apelido: form.apelido.trim() === "" ? form.nome : form.apelido,
-    };
-
     try {
-      await api.put(`/clientes/${form.codigoCliente}`, clienteAtualizado);
+      await api.put(`/usuarios/${form.codigoUsuario}`, form);
       onSuccess();
       onClose();
     } catch (error) {
@@ -36,7 +30,7 @@ const ModalEditarCliente = ({ cliente, onClose, onSuccess }) => {
   return (
     <div className="modal-overlay">
       <div className="modal">
-        <h2>Editar Cliente</h2>
+        <h2>Editar Usuario</h2>
         <form onSubmit={handleSubmit}>
           <fieldset>
             <legend>Nome:</legend>
@@ -47,14 +41,7 @@ const ModalEditarCliente = ({ cliente, onClose, onSuccess }) => {
               required
             />
           </fieldset>
-          <fieldset>
-            <legend>Apelido:</legend>
-            <input
-              name="apelido"
-              value={form.apelido}
-              onChange={handleChange}
-            />
-          </fieldset>
+
           <fieldset>
             <legend>Telefone:</legend>
             <input
@@ -66,6 +53,15 @@ const ModalEditarCliente = ({ cliente, onClose, onSuccess }) => {
           <fieldset>
             <legend>Email:</legend>
             <input name="email" value={form.email} onChange={handleChange} />
+          </fieldset>
+          <fieldset>
+            <legend>Senha:</legend>
+            <input
+              name="senha"
+              type="password"
+              value={form.senha}
+              onChange={handleChange}
+            />
           </fieldset>
           <fieldset>
             <legend>Endereço:</legend>
@@ -90,10 +86,6 @@ const ModalEditarCliente = ({ cliente, onClose, onSuccess }) => {
             </select>
           </fieldset>
           <fieldset>
-            <legend>Limite:</legend>
-            <input name="limite" value={form.limite} onChange={handleChange} />
-          </fieldset>
-          <fieldset>
             <legend>Observações:</legend>
             <textarea
               name="observacoes"
@@ -115,4 +107,4 @@ const ModalEditarCliente = ({ cliente, onClose, onSuccess }) => {
   );
 };
 
-export default ModalEditarCliente;
+export default ModalEditarUsuario;

@@ -1,36 +1,11 @@
 @import url("../global.css");
 
 
-.body {
-    display: flex;
-    margin: auto;
-    flex-direction: column;
-    align-items: center;
-    background: var(--header-bg-color-gradient);
-    height: 100vh;
-    width: 70vw;
-}
+
 .body h1{
     font-size: 3rem;
     color: var(--color4);
     margin-bottom: 0.5rem;
-}
-
-.body .body__top{
-    width: 100%;
-    display: flex;
-    padding: 0 20px;
-    justify-content: space-between;
-}
-
-.body__top .menu{
-    display: flex;
-    /* flex-direction: column; */
-    /* background-color: blueviolet; */
-    /* height: 50vh; */
-    margin-right: 0.2rem;
-    padding-right: 0.2rem;
-    border-right: 2px solid var(--color6);
 }
 
 .search-container{
@@ -45,72 +20,6 @@
     font-size: 1.3rem;
 }
 
-.searchInput{
-  margin: 8px;
-  padding: 4px;
-  width: 100%;
-  border-radius: 4px;
-}
-
-.body-content{
-    display: flex;
-    width: 100%;
-    overflow: hidden;
-}
-
-
-
-.main-content{
-    display: flex;
-    margin: 10px;
-    width: 100%;
-    max-height: 100%;
-    /* background-color: blue; */
-    overflow-y: scroll;
-}
-
-.main-content table{
-    margin: 1px;
-    width: 100%;
-    max-height: 100%;
-    border-collapse: collapse;
-    box-shadow: 10px 10px 28px 9px rgba(0,0,0,0.71);
-    -webkit-box-shadow: 10px 10px 28px 9px rgba(0,0,0,0.71);
-    -moz-box-shadow: 10px 10px 28px 9px rgba(0,0,0,0.71);
-}
-
-.main-content table tr{
-    background-color: var(--color1);
-    margin: 1px;
-    padding: 10px;
-    border: 1px solid var(--color6);
-}
-
-.main-content table tr:nth-child(even) td{
-    background-color: var(--color2);
-}
-
-.main-content table tr:hover{
-    background-color: var(--color7);
-}
-
-.main-content table tr:nth-child(even):hover td{
-    background-color: var(--color7);
-}
-
-.main-content table th{
-    background-color: var(--color3);
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    color: var(--color4);
-    padding: 1px 5px;
-    line-height: 0;
-    text-align: left;
-    line-height: 2.5;
-    font-size: 1.3rem;
-    /* border: 1px solid var(--color6); */
-}
 
 .credito{
     color:green;

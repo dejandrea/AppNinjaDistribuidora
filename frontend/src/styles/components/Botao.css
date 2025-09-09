@@ -86,5 +86,12 @@
     background-color: var(--btn-sec-bg-hover-color);
   }
 
+  .botao.sair{
+    background-color: var(--btn-red-bg-color);
+    color: var(--text-color1);
+  }
 
+  .botao.sair:hover {
+    background-color: var(--btn-red-hover-color);
+  }
   

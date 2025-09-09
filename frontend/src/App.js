@@ -6,6 +6,7 @@ import Contas from './pages/Contas';
 import ResumoContas from './pages/ResumoContas';
 import Mesas from './pages/Mesas'
 import Login from './pages/Login';
+import Cadastros from './pages/Cadastros'
 import './App.css';
 
 function PrivateRoute() {
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/contas" element={<Contas />} />
         <Route path="/resumo" element={<ResumoContas />} />
         <Route path="/mesas" element={<Mesas />} />
+        <Route path="/cadastros" element={<Cadastros />} />
       </Route>
     </Routes>
   );
