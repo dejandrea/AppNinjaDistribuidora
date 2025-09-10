@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import axios from 'axios';
 import api from '../services/api';
 import Botao from '../components/Botao';
-import Header from "../components/Nav"
-import '../styles/pages/ResumoContas.css';
+import '../styles/pages/Cadastros.css';
+import '../styles/pages/ResumoContas.css'
 
 const ResumoContas = () => {
     const [contas, setContas] = useState([]);
@@ -54,14 +53,9 @@ const ResumoContas = () => {
 
     return (
         <div className="body">
-            <Header />
-            <h1>Resumo Financeiro</h1>
-
             <div className='body__top'>
                 <div className="menu">
-                    <Botao onClick={() => navigate('/')} tamanho='xsm'>Tela Inicial</Botao>
-                    <Botao onClick={() => navigate('/clientes')} tamanho='xsm'>Clientes</Botao>
-                    <Botao onClick={() => navigate('/contas')} tamanho='xsm'>Contas</Botao>
+                    <Botao onClick={() => navigate('/cadastros')} tamanho='xsm'>Cadastros</Botao>
                 </div>
 
 

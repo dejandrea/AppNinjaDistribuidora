@@ -1,14 +1,16 @@
 @import url("../global.css");
 
 
-.body h1{
-    font-size: 3rem;
-    color: var(--color4);
-    margin-bottom: 0.5rem;
+.search-container{
+    max-width: 100%;
+    padding: auto;
 }
 
-.search-container{
-    width: 100%;
+.search-container .searchInput{
+  margin: 8px;
+  padding: 4px;
+  max-width: 98%;
+  border-radius: 4px;
 }
 
 .search-container p{
@@ -24,7 +26,7 @@
 }
 
 .debito{
-    color:var(--color6)
+    color:var(-text-color2)
 }
 
 .inativo{

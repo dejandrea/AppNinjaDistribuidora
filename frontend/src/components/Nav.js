@@ -24,7 +24,7 @@ const Nav = () => {
         <Botao onClick={() => navigate('/clientes') }tamanho='sm'>Caixa</Botao>
         <Botao onClick={() => navigate('/contas')}tamanho='sm'>PDV</Botao>
         <Botao onClick={() => navigate('/cadastros')}tamanho='sm'>Cadastros</Botao>
-        <Botao onClick={() => navigate('/clientes') }tamanho='sm'>Financeiro</Botao>
+        <Botao onClick={() => navigate('/financeiro') }tamanho='sm'>Financeiro</Botao>
         <Botao onClick={() => navigate('/contas')}tamanho='sm'>Estoque</Botao>
         <Botao onClick={() => navigate('/resumo')}tamanho='sm'>Relatórios</Botao>
       </div>
