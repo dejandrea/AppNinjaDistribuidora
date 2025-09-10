@@ -40,7 +40,8 @@ exports.updateCliente = async (req, res) => {
       req.body,
       { new: true }
     );
-    if (!clienteAtualizado) return res.status(404).json({ mensagem: 'Cliente não encontrado' });
+    if (!clienteAtualizado) return res.status(404).json(
+      { mensagem: 'Cliente não encontrado' });
     res.status(200).json(clienteAtualizado);
   } catch (err) {
     res.status(400).json({ erro: err.message });

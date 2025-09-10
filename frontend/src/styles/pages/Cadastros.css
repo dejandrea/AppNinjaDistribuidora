@@ -79,7 +79,7 @@
 }
 
 .inativo{
-    color:var(--grey-color1);
+    color:var(--grey-color4);
     font-weight: 100;
     text-decoration: line-through;
 }

@@ -45,21 +45,32 @@ exports.createUsuario = async (req, res) => {
 
 exports.updateUsuario = async (req, res) => {
   try {
-    const usuario = await Usuario.findOne({ codigoUsuario: req.params.codigoUsuario });
-    if (!usuario) return res.status(404).json({ message: 'Usuário não encontrado' });
+    const { senha, ...resto } = req.body;
 
-    const { nome, email, senha } = req.body;
-
-    if (nome) usuario.nome = nome;
-    if (email) usuario.email = email;
-
-    if (senha) {
-      // se a senha foi enviada, gera novo hash
-      usuario.senha = await bcrypt.hash(senha, saltRounds);
+    // Remove campos vazios (string vazia, null ou undefined)
+    const dadosParaAtualizar = {};
+    for (const [key, value] of Object.entries(resto)) {
+      if (value !== "" && value !== null && value !== undefined) {
+        dadosParaAtualizar[key] = value;
+      }
     }
 
-    const usuarioAtualizado = await usuario.save();
-    res.json(usuarioAtualizado);
+    // Se senha foi enviada e não está vazia, gera hash
+    if (senha && senha.trim() !== "") {
+      dadosParaAtualizar.senha = await bcrypt.hash(senha, saltRounds);
+    }
+
+    const usuarioAtualizado = await Usuario.findOneAndUpdate(
+      { codigoUsuario: req.params.codigoUsuario },
+      dadosParaAtualizar,
+      { new: true }
+    );
+
+    if (!usuarioAtualizado) {
+      return res.status(404).json({ message: "Usuário não encontrado" });
+    }
+
+    res.status(200).json(usuarioAtualizado);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }

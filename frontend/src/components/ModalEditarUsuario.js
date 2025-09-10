@@ -4,26 +4,47 @@ import Botao from "./Botao";
 import "../styles/components/Modal.css";
 
 const ModalEditarUsuario = ({ usuario, onClose, onSuccess }) => {
-  const [form, setForm] = useState(usuario);
+  const [form, setForm] = useState({
+    ...usuario,
+    senha: "",
+    observacoes: usuario?.observacoes || "",
+    ativo: usuario?.ativo ? "true" : "false", // garante que seja string
+  });
 
   useEffect(() => {
-    setForm(usuario); // Atualiza se usuario mudar
+    if (usuario) {
+      setForm({
+        ...usuario,
+        senha: "",
+        observacoes: usuario?.observacoes || "",
+        ativo: usuario?.ativo ? "true" : "false",
+      });
+    }
   }, [usuario]);
 
-  const handleChange = (e) => {
+ const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // converte ativo para boolean antes de enviar ao backend
+    const usuarioAtualizado = {
+      ...form,
+      ativo: form.ativo === "true",
+    };
+
     try {
-      await api.put(`/usuarios/${form.codigoUsuario}`, form);
+      await api.put(`/usuarios/${form.codigoUsuario}`, usuarioAtualizado);
       onSuccess();
       onClose();
     } catch (error) {
-      console.error("Erro ao atualizar cliente:", error);
+      console.error("Erro ao atualizar Usuário:", error);
     }
   };
 
@@ -36,7 +57,7 @@ const ModalEditarUsuario = ({ usuario, onClose, onSuccess }) => {
             <legend>Nome:</legend>
             <input
               name="nome"
-              value={form.nome}
+              value={form.nome || ""}
               onChange={handleChange}
               required
             />
@@ -46,13 +67,17 @@ const ModalEditarUsuario = ({ usuario, onClose, onSuccess }) => {
             <legend>Telefone:</legend>
             <input
               name="telefone"
-              value={form.telefone}
+              value={form.telefone || ""}
               onChange={handleChange}
             />
           </fieldset>
           <fieldset>
             <legend>Email:</legend>
-            <input name="email" value={form.email} onChange={handleChange} />
+            <input 
+              name="email" 
+              value={form.email || ""}
+              onChange={handleChange} 
+            />
           </fieldset>
           <fieldset>
             <legend>Senha:</legend>
@@ -61,13 +86,14 @@ const ModalEditarUsuario = ({ usuario, onClose, onSuccess }) => {
               type="password"
               value={form.senha}
               onChange={handleChange}
+              placeholder="Digite nova senha se quiser alterar"
             />
           </fieldset>
           <fieldset>
             <legend>Endereço:</legend>
             <input
               name="endereco"
-              value={form.endereco}
+              value={form.endereco || ""}
               onChange={handleChange}
             />
           </fieldset>
@@ -80,7 +106,7 @@ const ModalEditarUsuario = ({ usuario, onClose, onSuccess }) => {
           </fieldset>
           <fieldset>
             <legend>Ativo:</legend>
-            <select name="ativo" value={form.ativo} onChange={handleChange}>
+            <select name="ativo" value={String(form.ativo)} onChange={handleChange}>
               <option value="true">Sim</option>
               <option value="false">Não</option>
             </select>
