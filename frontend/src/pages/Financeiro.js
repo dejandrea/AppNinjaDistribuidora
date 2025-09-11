@@ -8,7 +8,7 @@ import ResumoContas from "./ResumoContas";
 import "../styles/pages/Cadastros.css";
 
 const Financeiro = () => {
-  const [activeTab, setActiveTab] = useState("relatorio");
+  const [activeTab, setActiveTab] = useState("receber");
   let navigate = useNavigate();
     const handleLogout = () => {
     localStorage.removeItem("token");

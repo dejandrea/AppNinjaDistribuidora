@@ -84,6 +84,9 @@ exports.login = async (req, res) => {
     const usuario = await Usuario.findOne({ email });
     if (!usuario) return res.status(404).json({ error: 'Usuário não encontrado' });
 
+    const acessoBloqueado = usuario.status === "bloqueado" || usuario.ativo === false
+    if (acessoBloqueado) return res.status(404).json({ error: 'Usuário Bloqueado ou Inativo' });
+
     const senhaCorreta = await bcrypt.compare(senha, usuario.senha);
     if (!senhaCorreta) return res.status(401).json({ error: 'Senha inválida' });
 

@@ -94,7 +94,7 @@
     padding: 0;
 }
 
-.container{
+.container-global{
     width: 100vw;
     height: 100vh;
     background-image: url("../assets/images/logoSitema/Logo-Grande-Cinza.png");
@@ -109,7 +109,7 @@
     flex-direction: column;
     align-items: stretch;
     /* background-color: blueviolet; */
-    height: 80%;
+    min-height: 80%;
     /* width: 90vw; */
 }
 
